@@ -77,11 +77,13 @@ ImageSaverNode::ImageSaverNode(const rclcpp::NodeOptions & options)
     "image", this->get_name(), this->get_namespace());
   rmw_qos_profile_t image_qos = rmw_qos_profile_sensor_data;
 
+  // Commenting out to avoid warnings when not using camera_info topic
+
   // Useful when CameraInfo is being published
-  cam_sub_ = image_transport::create_camera_subscription(
-    this, topic, std::bind(
-      &ImageSaverNode::callbackWithCameraInfo, this, std::placeholders::_1, std::placeholders::_2),
-    "raw", image_qos);
+  //cam_sub_ = image_transport::create_camera_subscription(
+  //  this, topic, std::bind(
+  //   &ImageSaverNode::callbackWithCameraInfo, this, std::placeholders::_1, std::placeholders::_2),
+  //  "raw", image_qos);
 
   // Useful when CameraInfo is not being published
   image_sub_ = image_transport::create_subscription(
