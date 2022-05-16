@@ -191,4 +191,11 @@ cv::Mat initMatrix(cv::Mat cameraMatrix, cv::Mat distCoeffs, int width, int heig
   return pixelVectors.reshape(3, width);
 }
 
+
+template void convertDepth<uint16_t>(
+  const sensor_msgs::msg::Image::ConstSharedPtr &,
+  sensor_msgs::msg::PointCloud2::SharedPtr &,
+  const image_geometry::PinholeCameraModel &,
+  double);
+
 }  // namespace depth_image_proc
