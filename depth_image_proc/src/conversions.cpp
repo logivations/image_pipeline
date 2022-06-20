@@ -198,4 +198,10 @@ template void convertDepth<uint16_t>(
   const image_geometry::PinholeCameraModel &,
   double);
 
+template void convertDepth<float>(
+  const sensor_msgs::msg::Image::ConstSharedPtr &,
+  sensor_msgs::msg::PointCloud2::SharedPtr &,
+  const image_geometry::PinholeCameraModel &,
+  double);
+
 }  // namespace depth_image_proc
